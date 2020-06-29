@@ -40,7 +40,7 @@ class SleepTrackerFragment : Fragment() {
         binding.lifecycleOwner = this
         sleepTrackerViewModel.allnights.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adapter.data = it
+                adapter.submitList(it)
             }
         })
         sleepTrackerViewModel.navigateToSleep.observe(this, Observer { night ->

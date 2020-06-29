@@ -15,8 +15,7 @@
             android:id="@+id/action_sleepTrackerFragment_to_sleepQualityFragment"
             app:destination="@id/sleep_quality_fragment"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@android:anim/slide_in_left"
-            app:popEnterAnim="@anim/slide_in_right" />
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
 
     <fragment
@@ -28,12 +27,7 @@
             android:id="@+id/action_sleepQualityFragment_to_sleepTrackerFragment"
             app:destination="@id/sleep_tracker_fragment"
             app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:launchSingleTop="false"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/sleep_tracker_fragment"
-            app:popUpToInclusive="true" />
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
         <argument
             android:name="sleepNightKey"
             app:argType="long" />
