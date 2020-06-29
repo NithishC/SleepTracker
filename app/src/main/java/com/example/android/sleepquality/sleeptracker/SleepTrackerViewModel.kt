@@ -47,43 +47,48 @@ class SleepTrackerViewModel(
     }
 
 
-
     private val _navigateToSleep = MutableLiveData<SleepNight>()
-    val navigateToSleep :LiveData<SleepNight>
-            get()=_navigateToSleep
-    fun donenavigate(){
+    val navigateToSleep: LiveData<SleepNight>
+        get() = _navigateToSleep
+
+    fun donenavigate() {
         _navigateToSleep.value = null
     }
-    init{
+
+    init {
         initializeTonight()
     }
-    private fun initializeTonight(){
+
+    private fun initializeTonight() {
         uiScope.launch {
             tonight.value = getTonightFromDatabase()
         }
     }
 
     private suspend fun getTonightFromDatabase(): SleepNight? {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             var night = database.getTonight()
-            if(night?.endTimeMilli != night?.startTimeMilli){
+            if (night?.endTimeMilli != night?.startTimeMilli) {
                 night = null
             }
             night
         }
     }
-    fun onStartTracking(){
+
+    fun onStartTracking() {
         uiScope.launch {
             val newNight = SleepNight()
             insert(newNight)
             tonight.value = getTonightFromDatabase()
         }
     }
-    private suspend fun insert(night: SleepNight){
-        withContext(Dispatchers.IO){
+
+    private suspend fun insert(night: SleepNight) {
+        withContext(Dispatchers.IO) {
             database.insert(night)
         }
     }
+
     fun onStopTracking() {
         uiScope.launch {
             val oldNight = tonight.value ?: return@launch
@@ -92,11 +97,13 @@ class SleepTrackerViewModel(
             _navigateToSleep.value = oldNight
         }
     }
+
     private suspend fun update(night: SleepNight) {
         withContext(Dispatchers.IO) {
             database.update(night)
         }
     }
+
     fun onClear() {
         uiScope.launch {
             clear()

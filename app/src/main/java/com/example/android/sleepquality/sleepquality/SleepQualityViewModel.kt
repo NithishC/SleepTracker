@@ -6,16 +6,17 @@ import androidx.lifecycle.ViewModel
 import com.example.android.sleepquality.database.SleepDatabaseDao
 import kotlinx.coroutines.*
 
-class SleepQualityViewModel (
-    private val sleepNightKey:Long= 0L,
-    val database : SleepDatabaseDao ) : ViewModel(){
-    private val viewModelJob= Job()
+class SleepQualityViewModel(
+        private val sleepNightKey: Long = 0L,
+        val database: SleepDatabaseDao) : ViewModel() {
+    private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val _navigateToSleepTracker =MutableLiveData<Boolean?>()
-    val navigateToSleepTracker : LiveData<Boolean?>
-    get() = _navigateToSleepTracker
-    fun donenavigate(){
+    private val _navigateToSleepTracker = MutableLiveData<Boolean?>()
+    val navigateToSleepTracker: LiveData<Boolean?>
+        get() = _navigateToSleepTracker
+
+    fun donenavigate() {
         _navigateToSleepTracker.value = null
     }
 

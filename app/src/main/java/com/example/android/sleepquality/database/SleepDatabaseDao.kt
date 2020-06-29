@@ -1,4 +1,3 @@
-
 package com.example.android.sleepquality.database
 
 import androidx.lifecycle.LiveData

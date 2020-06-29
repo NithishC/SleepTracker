@@ -1,4 +1,3 @@
-
 package com.example.android.sleepquality.sleepquality
 
 import android.os.Bundle
@@ -33,7 +32,7 @@ class SleepQualityFragment : Fragment() {
                 ViewModelProviders.of(
                         this, viewModelFactory).get(SleepQualityViewModel::class.java)
         binding.sleepQualityViewModel = sleepQualityViewModel
-        sleepQualityViewModel.navigateToSleepTracker.observe(this,  Observer {
+        sleepQualityViewModel.navigateToSleepTracker.observe(this, Observer {
             if (it == true) { // Observed state is true.
                 this.findNavController().navigate(
                         SleepQualityFragmentDirections.actionSleepQualityFragmentToSleepTrackerFragment())

@@ -1,5 +1,3 @@
-
-
 package com.example.android.sleepquality.database
 
 import android.content.Context
@@ -11,6 +9,7 @@ import androidx.room.RoomDatabase
 abstract class SleepDatabase : RoomDatabase() {
 
     abstract val sleepDatabaseDao: SleepDatabaseDao
+
     companion object {
         @Volatile
         private var INSTANCE: SleepDatabase? = null
@@ -24,7 +23,7 @@ abstract class SleepDatabase : RoomDatabase() {
                             SleepDatabase::class.java,
                             "sleep_history_database"
                     )
-                           .fallbackToDestructiveMigration()
+                            .fallbackToDestructiveMigration()
                             .build()
                     INSTANCE = instance
                 }

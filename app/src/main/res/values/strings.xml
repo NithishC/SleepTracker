@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <resources>
     <string name="app_name">Sleep Quality</string>
     <string name="sleep_tracker_fragment">SleepTrackerFragment</string>
@@ -17,6 +18,14 @@
     <string name="quality_4">Sleep Quality 4</string>
     <string name="quality_5">Sleep Quality 5</string>
 
+    <string name="sun">Sunday</string>
+    <string name="mon">Monday</string>
+    <string name="tue">Tuesday</string>
+    <string name="wed">Wednesday</string>
+    <string name="thu">Thursday</string>
+    <string name="fri">Friday</string>
+    <string name="sat">Saturday</string>
+
     <string name="title"><![CDATA[<h3>HERE IS YOUR SLEEP DATA</h3>]]></string>
     <string name="start_time"><![CDATA[<b>Start:</b>]]></string>
     <string name="end_time"><![CDATA[<b>End:</b>]]></string>
@@ -33,5 +42,7 @@
 
 
     <string name="cleared_message">All your data is gone forever.</string>
-
+    <string name="minutes_length">%d minutes on %s</string>
+    <string name="hours_length">%d hours on %s</string>
+    <string name="seconds_length">%d seconds on %s</string>
 </resources>
