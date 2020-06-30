@@ -13,7 +13,9 @@
         tools:layout="@layout/fragment_sleep_tracker">
         <action
             android:id="@+id/action_sleep_tracker_fragment_to_sleep_quality_fragment2"
-            app:destination="@id/sleep_quality_fragment" />
+            app:destination="@id/sleep_quality_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
 
     <fragment
@@ -26,7 +28,9 @@
             app:argType="long" />
         <action
             android:id="@+id/action_sleep_quality_fragment_to_sleep_tracker_fragment3"
-            app:destination="@id/sleep_tracker_fragment" />
+            app:destination="@id/sleep_tracker_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
 
 </navigation>
