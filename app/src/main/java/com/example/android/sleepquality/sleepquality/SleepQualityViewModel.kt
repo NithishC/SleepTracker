@@ -27,7 +27,7 @@ class SleepQualityViewModel(
                 tonight.sleepQuality = quality
                 database.update(tonight)
             }
-            _navigateToSleepTracker.value = true
+//            _navigateToSleepTracker.value = true
         }
     }
 

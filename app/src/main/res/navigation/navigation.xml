@@ -12,10 +12,8 @@
         android:label="@string/sleep_tracker_fragment"
         tools:layout="@layout/fragment_sleep_tracker">
         <action
-            android:id="@+id/action_sleepTrackerFragment_to_sleepQualityFragment"
-            app:destination="@id/sleep_quality_fragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+            android:id="@+id/action_sleep_tracker_fragment_to_sleep_quality_fragment2"
+            app:destination="@id/sleep_quality_fragment" />
     </fragment>
 
     <fragment
@@ -23,14 +21,12 @@
         android:name="com.example.android.sleepquality.sleepquality.SleepQualityFragment"
         android:label="@string/sleep_quality_fragment"
         tools:layout="@layout/fragment_sleep_quality">
-        <action
-            android:id="@+id/action_sleepQualityFragment_to_sleepTrackerFragment"
-            app:destination="@id/sleep_tracker_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
         <argument
             android:name="sleepNightKey"
             app:argType="long" />
+        <action
+            android:id="@+id/action_sleep_quality_fragment_to_sleep_tracker_fragment3"
+            app:destination="@id/sleep_tracker_fragment" />
     </fragment>
 
 </navigation>

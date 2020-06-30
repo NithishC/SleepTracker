@@ -46,7 +46,7 @@ class SleepTrackerFragment : Fragment() {
         sleepTrackerViewModel.navigateToSleep.observe(this, Observer { night ->
             night?.let {
                 this.findNavController().navigate(
-                        SleepTrackerFragmentDirections.actionSleepTrackerFragmentToSleepQualityFragment(night.nightId)
+                        SleepTrackerFragmentDirections.actionSleepTrackerFragmentToSleepQualityFragment2(night.nightId)
                 )
                 sleepTrackerViewModel.donenavigate()
             }

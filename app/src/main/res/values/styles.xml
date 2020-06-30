@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-<style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@color/Black</item>
+    </style>
+
+    <style name="ActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="titleTextColor">@color/Black</item>
+        <item name="title">@string/app_name</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi" tools:targetApi="lollipop">
+            ?attr/colorPrimaryVariant
+        </item>
     </style>
 
     <style name="SleepButtons" parent="Widget.AppCompat.Button.Colored">
