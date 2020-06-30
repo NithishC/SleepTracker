@@ -1,5 +1,7 @@
 # SleepTracker
 Want to Track your Sleep.
 I have build an app to track your sleep.
-## yet to fix bugs,so let wait for the finished product
+
+### Updated:
+#### 1.Dark Theme Layout has been added
 
