@@ -110,8 +110,9 @@ class SleepTrackerViewModel(
         }
     }
 
-    fun showText(nightId: Long) {
-        Toast.makeText(getApplication(), "Nothing to show on ${nightId}", Toast.LENGTH_SHORT).show()
+    fun showText() {
+        Toast.makeText(getApplication(), "Nothing to show on ", Toast.LENGTH_SHORT).show()
+
     }
 
     fun showTextClear() {

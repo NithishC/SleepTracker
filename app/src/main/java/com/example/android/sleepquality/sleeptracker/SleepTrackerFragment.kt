@@ -33,8 +33,8 @@ class SleepTrackerFragment : Fragment() {
                 ViewModelProviders.of(
                         this, viewModelFactory).get(SleepTrackerViewModel::class.java)
 
-        val adapter = SleepNightAdapter(SleepNightListener { nightId ->
-            sleepTrackerViewModel.showText(nightId)
+        val adapter = SleepNightAdapter(SleepNightListener {
+            sleepTrackerViewModel.showText()
 
         })
         binding.sleepList.adapter = adapter
