@@ -6,13 +6,18 @@
     <data>
 
         <variable
+            name="clickListener"
+            type="com.example.android.sleepquality.sleeptracker.SleepNightListener" />
+
+        <variable
             name="sleep"
             type="com.example.android.sleepquality.database.SleepNight" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(sleep)}">
 
         <ImageView
             android:id="@+id/quality_image"
@@ -25,18 +30,32 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.081"
-            tools:srcCompat="@drawable/ic_sleep_5"
-            app:sleepImage="@{sleep}" />
+            app:layout_constraintVertical_bias="0.0"
+            app:sleepImage="@{sleep}"
+            tools:srcCompat="@drawable/ic_sleep_5" />
 
         <TextView
             android:id="@+id/quality_string"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="@+id/quality_image"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/quality_image"
             app:layout_constraintTop_toBottomOf="@+id/quality_image"
             app:sleepQualityString="@{sleep}" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorAccent"
+            app:sleepDurationFormatted="@{sleep}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/quality_string"
+            app:layout_constraintStart_toStartOf="@+id/quality_string"
+            app:layout_constraintTop_toBottomOf="@+id/quality_string" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

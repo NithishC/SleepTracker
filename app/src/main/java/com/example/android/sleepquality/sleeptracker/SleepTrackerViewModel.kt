@@ -1,6 +1,7 @@
 package com.example.android.sleepquality.sleeptracker
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -20,7 +21,6 @@ class SleepTrackerViewModel(
         super.onCleared()
         viewModelJob.cancel()
     }
-
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private var tonight = MutableLiveData<SleepNight>()
@@ -36,14 +36,6 @@ class SleepTrackerViewModel(
     }
     val clearButtonVisible = Transformations.map(allnights) {
         it?.isNotEmpty()
-    }
-    private var _showSnackbarEvent = MutableLiveData<Boolean>()
-
-    val showSnackBarEvent: LiveData<Boolean>
-        get() = _showSnackbarEvent
-
-    fun doneShowingSnackbar() {
-        _showSnackbarEvent.value = false
     }
 
 
@@ -108,7 +100,7 @@ class SleepTrackerViewModel(
         uiScope.launch {
             clear()
             tonight.value = null
-            _showSnackbarEvent.value = true
+
         }
     }
 
@@ -117,6 +109,16 @@ class SleepTrackerViewModel(
             database.clear()
         }
     }
+
+    fun showText(nightId: Long) {
+        Toast.makeText(getApplication(), "Nothing to show on ${nightId}", Toast.LENGTH_SHORT).show()
+    }
+
+    fun showTextClear() {
+        onClear()
+        Toast.makeText(getApplication(), "All Data has been cleared", Toast.LENGTH_SHORT).show()
+    }
+
 
 }
 

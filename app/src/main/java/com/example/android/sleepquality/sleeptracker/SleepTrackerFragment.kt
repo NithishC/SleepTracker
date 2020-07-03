@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.android.sleepquality.R
 import com.example.android.sleepquality.database.SleepDatabase
 import com.example.android.sleepquality.databinding.FragmentSleepTrackerBinding
-import com.google.android.material.snackbar.Snackbar
 
 class SleepTrackerFragment : Fragment() {
 
@@ -33,8 +32,13 @@ class SleepTrackerFragment : Fragment() {
         val sleepTrackerViewModel =
                 ViewModelProviders.of(
                         this, viewModelFactory).get(SleepTrackerViewModel::class.java)
-        val adapter = SleepNightAdapter()
+
+        val adapter = SleepNightAdapter(SleepNightListener { nightId ->
+            sleepTrackerViewModel.showText(nightId)
+
+        })
         binding.sleepList.adapter = adapter
+
         val manager = GridLayoutManager(activity, 3)
         binding.sleepList.layoutManager = manager
         binding.sleepTrackerViewModel = sleepTrackerViewModel
@@ -51,16 +55,6 @@ class SleepTrackerFragment : Fragment() {
                         SleepTrackerFragmentDirections.actionSleepTrackerFragmentToSleepQualityFragment2(night.nightId)
                 )
                 sleepTrackerViewModel.donenavigate()
-            }
-        })
-        sleepTrackerViewModel.showSnackBarEvent.observe(this, Observer {
-            if (it == true) { // Observed state is true.
-                Snackbar.make(
-                        activity!!.findViewById(android.R.id.content),
-                        getString(R.string.cleared_message),
-                        Snackbar.LENGTH_SHORT // How long to display the message.
-                ).show()
-                sleepTrackerViewModel.doneShowingSnackbar()
             }
         })
 
