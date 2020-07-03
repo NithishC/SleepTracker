@@ -22,7 +22,7 @@ interface SleepDatabaseDao {
     fun get(key: Long): SleepNight?
 
 
-    @Query("DELETE FROM daily_sleep_quality_table")
+    @Query("DELETE FROM daily_sleep_quality_table ")
     fun clear()
 
 
